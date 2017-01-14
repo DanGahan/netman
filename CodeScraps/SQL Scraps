@@ -1,0 +1,16 @@
+TABLE CREATE
+CREATE TABLE "NetScan"
+(
+   "ID"          INTEGER DEFAULT nextval ('"NetScan_ID_seq"'::regclass),
+   "MAC"         CHARACTER VARYING (17),
+   "TimeStamp"   TIMESTAMP (5) WITHOUT TIME ZONE DEFAULT now ()
+)
+
+SELECT
+select * from "NetScan"
+
+INSERT
+insert into "NetScan"("MAC") values ('0e:40:08:94:20:e4');
+
+SELECT DISTINCT "MAC" from "NetScan";
+
