@@ -1,2 +1,6 @@
 extract MAC addresses from arp table
 grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'
+
+Pull IP from apr table
+
+sudo arp -n | grep '52:54:00:12:35:02' | awk '{print $1}'

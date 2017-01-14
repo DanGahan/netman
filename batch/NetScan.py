@@ -8,9 +8,18 @@ import sys
 import pprint
 import subprocess
 import os
+from ConfigParser import SafeConfigParser
+
+#Import varibales from NetMan.conf
+Config = SafeConfigParser()
+Config.read('../conf/NetMan.conf')
+
+#Set CIDR variable from conf file
+CIDR =  Config.get('config', 'network')
+
 
 #Define subnet to scan
-CIDR = "192.168.0.0/24"
+#CIDR = "192.168.0.0/24"
 
 # ntp sync
 
@@ -42,7 +51,6 @@ print "SUCCESS: MAC Addresses Obtained from arp table"
 #Insert MAC Addresses into DB NetScan Table
 
 MAClistLength = len(MAClist)
-print MAClistLength
 Counter = 0
 
 Counter < MAClistLength
